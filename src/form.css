@@ -1,3 +1,4 @@
-.test {
-  color: red;
+input, textarea, button {
+  margin: 5px;
+  font-size: 20px;
 }
