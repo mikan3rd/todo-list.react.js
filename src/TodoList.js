@@ -18,9 +18,9 @@ export default class TodoList extends Component {
     }
 
     return(
-      <ol>
-        <li>{todos}</li>
-      </ol>
+      <ul>
+        {todos}
+      </ul>
     );
   }
 }

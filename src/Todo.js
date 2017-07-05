@@ -12,11 +12,21 @@ export default class from extends Component {
     };
   }
 
+  handleClick(e) {
+    e.preventDefault();
+    this.setState({
+      done:!this.state.done
+    });
+  }
+
   render() {
+    const link = this.state.done? '元に戻す' : '完了！';
+    const className = this.state.done? 'done' : 'undone';
     return(
-      <li className="todo">
-        <span>{this.state.title}：</span>
-        <a href="">リンク</a><br/>
+      <li className={className}>
+        <span>1</span>
+        <span>：{this.state.title}　　</span>
+        <a href="#" onClick={this.handleClick.bind(this)}>{link}</a><br/>
         <p>{this.state.desc}</p>
       </li>
     );
