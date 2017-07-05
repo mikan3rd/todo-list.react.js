@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './todo.css';
 
 export default class from extends Component {
 
@@ -13,7 +14,7 @@ export default class from extends Component {
 
   render() {
     return(
-      <li>
+      <li className="todo">
         <span>{this.state.title}：</span>
         <a href="#">リンク</a><br/>
         <p>{this.state.desc}</p>
