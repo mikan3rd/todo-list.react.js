@@ -26,7 +26,7 @@ export default class App extends Component {
     const desc = e.target.desc.value;
     const todos = this.state.todos.slice();
 
-    if (todos.filter(todo => todo.title == title).length > 0) {
+    if (todos.filter(todo => todo.title === title).length > 0) {
       alert("同じタイトルのtodoがあります");
       return;
     }
@@ -40,6 +40,10 @@ export default class App extends Component {
 
     e.target.title.value = '';
     e.target.desc.value = '';
+  }
+
+  setTodoStatus(index) {
+    let todos = this.state.todos.slice();
   }
 
   render() {
