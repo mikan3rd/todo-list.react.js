@@ -1,11 +1,11 @@
 # 疑問
 * `import React`の`{Component}`以外は？
 * `constructor(props)`は`state`の初期化？`super(props)`とは？
-* App.jsとTodoList.jsの２ヶ所でtodosが定義されている？
 * formの中身をtarget以外で指定したい
 * Form.jsの`onSubmit={this.props.onSubmit}`はどういう意味？
 * .slice()は特にいらない？
 * bindとthisについて
+* keyは子要素に渡せない？
 
 # 追加機能案
 * 同じ名前のtodoができないようにする

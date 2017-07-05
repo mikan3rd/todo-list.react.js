@@ -24,7 +24,7 @@ export default class App extends Component {
       return;
     }
     const desc = e.target.desc.value;
-    const todos = this.state.todos;
+    const todos = this.state.todos.slice();
     todos.push({
       title: title,
       desc: desc,

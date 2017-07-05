@@ -11,7 +11,6 @@ export default class from extends Component {
       desc: props.desc,
       done: props.done
     };
-    console.log(props);
   }
 
   handleClick(e) {
