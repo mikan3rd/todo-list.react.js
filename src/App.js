@@ -25,12 +25,19 @@ export default class App extends Component {
     }
     const desc = e.target.desc.value;
     const todos = this.state.todos.slice();
+
+    if (todos.filter(todo => todo.title == title).length > 0) {
+      alert("同じタイトルのtodoがあります");
+      return;
+    }
+
     todos.push({
       title: title,
       desc: desc,
       done: false
     });
     this.setState({ todos: todos});
+
     e.target.title.value = '';
     e.target.desc.value = '';
   }
