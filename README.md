@@ -5,11 +5,13 @@
 * formの中身をtarget以外で指定したい
 * Form.jsの`onSubmit={this.props.onSubmit}`はどういう意味？
 * .slice()は特にいらない？
+* bindとthisについて
 
-### 追加機能
-* バリデーションのかけ方（同じ名前のtodoができないようにするため）
+### 追加機能案
+* 同じ名前のtodoができないようにする
 * 番号の表示
 * 未完了のtodo数の表示
+* 完了数に応じてレベルアップ
 
 ### メモ
 * `export default class`とは？→[ReactJSのComponentをimport,exportする](http://qiita.com/HIGAX/items/28f3bec814928b7395da)

@@ -14,6 +14,8 @@ export default class App extends Component {
 
   }
 
+  // handleSubmit = handleSubmit.bind(this);
+
   handleSubmit(e) {
     e.preventDefault();
     const title = e.target.title.value;
@@ -24,7 +26,6 @@ export default class App extends Component {
       desc: desc,
       done: false
     });
-    console.log(todos);
     this.setState({ todos: todos});
   }
 

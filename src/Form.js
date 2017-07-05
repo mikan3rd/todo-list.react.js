@@ -8,7 +8,7 @@ export default class Form extends Component {
         <form name="todoform" onSubmit={this.props.onSubmit}>
           <input name="title" type="text" placeholder="タイトルを入力" defaultValue="reactの勉強" /><br/>
           <textarea name="desc" placeholder="説明を入力" defaultValue="todoアプリを作っています！"></textarea><br/>
-          <button type="submit">送信</button>
+          <button type="submit">todoを作成</button>
         </form>
       </div>
     );
