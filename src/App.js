@@ -27,6 +27,8 @@ export default class App extends Component {
       done: false
     });
     this.setState({ todos: todos});
+    e.target.title.value = '';
+    e.target.desc.value = '';
   }
 
   render() {
