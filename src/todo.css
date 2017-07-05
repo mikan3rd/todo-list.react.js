@@ -1,3 +1,7 @@
 .todo {
-  margin: 10px;
+  width: 400px;
+  background-color: white;
+  color: green;
+  margin: 10px auto;
+  padding: 5px;
 }

@@ -16,9 +16,16 @@ export default class App extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(e.target.elements);
-    const title = e.target.elements[0].value;
-    const desc = e.target.elements[1].value;
+    const title = e.target.title.value;
+    const desc = e.target.desc.value;
+    const todos = this.state.todos;
+    todos.push({
+      title: title,
+      desc: desc,
+      done: false
+    });
+    console.log(todos);
+    this.setState({ todos: todos});
   }
 
   render() {

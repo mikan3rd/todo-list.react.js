@@ -3,6 +3,7 @@
 * `constructor(props)`は`state`の初期化？`super(props)`とは？
 * App.jsとTodoList.jsの２ヶ所でtodosが定義されている？
 * .bind()について、説明を読んでもいまいち理解できていない気がする→[bindメソッド](http://js.studio-kingdom.com/javascript/function/bind)
+* formの中身をtarget以外で指定したい
 
 ### 追加機能
 * バリデーションのかけ方（同じ名前のtodoができないようにするため）

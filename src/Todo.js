@@ -6,7 +6,7 @@ export default class from extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "これがタイトル",
+      title: props.title,
       desc: props.desc,
       done: props.done
     };
@@ -16,7 +16,7 @@ export default class from extends Component {
     return(
       <li className="todo">
         <span>{this.state.title}：</span>
-        <a href="#">リンク</a><br/>
+        <a href="">リンク</a><br/>
         <p>{this.state.desc}</p>
       </li>
     );
