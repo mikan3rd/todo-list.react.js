@@ -1,21 +1,41 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Form from './Form';
+import TodoList from './TodoList';
 import './App.css';
 
-class App extends Component {
+
+export default class App extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      todos: []
+    };
+
+  }
+
+  // handleSubmit = handleSubmit.bind(this);
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const title = e.target.title.value;
+    const desc = e.target.desc.value;
+    const todos = this.state.todos;
+    todos.push({
+      title: title,
+      desc: desc,
+      done: false
+    });
+    this.setState({ todos: todos});
+  }
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="app">
+        <h1>todoアプリを作ってみた</h1>
+        <Form onSubmit={this.handleSubmit.bind(this)} />
+        <TodoList todos={this.state.todos} />
       </div>
     );
   }
 }
-
-export default App;
