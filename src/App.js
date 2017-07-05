@@ -19,6 +19,10 @@ export default class App extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const title = e.target.title.value;
+    if (!title) {
+      alert("タイトルを入力してください");
+      return;
+    }
     const desc = e.target.desc.value;
     const todos = this.state.todos;
     todos.push({
