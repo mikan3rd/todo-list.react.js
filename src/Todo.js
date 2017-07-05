@@ -6,7 +6,7 @@ export default class from extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      num: props.num,
+      index: props.index,
       title: props.title,
       desc: props.desc,
       done: props.done
@@ -25,7 +25,7 @@ export default class from extends Component {
     const className = this.state.done? 'done' : 'undone';
     return(
       <li className={className}>
-        <span>{this.state.num}</span>
+        <span>{this.state.index + 1}</span>
         <span>：{this.state.title}　　</span>
         <a href="#" onClick={this.handleClick.bind(this)}>{link}</a><br/>
         <p>{this.state.desc}</p>
