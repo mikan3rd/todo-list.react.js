@@ -10,11 +10,10 @@ export default class App extends Component {
     super();
     this.state = {
       todos: [],
-      deleteNum: 0
+      countDone: 0,
+      level: 1
     };
   }
-
-  // handleSubmit = handleSubmit.bind(this);
 
   handleSubmit(e) {
     e.preventDefault();
@@ -43,25 +42,29 @@ export default class App extends Component {
   }
 
   setTodoStatus(clickTodo) {
+    let countDone = this.state.countDone;
     const todos = this.state.todos.slice();
     const todo = todos[clickTodo.index];
     todo.done = !todo.done;
     todos[clickTodo] = todo;
+    if (todo.done) {
+      countDone++;
+    } else {
+      countDone--;
+    }
     this.setState({ todos });
+    this.setState({ countDone });
   }
 
   deleteTodoState(clickTodo) {
     const todos = this.state.todos.slice();
-    const deleteNum = this.state.deleteNum + 1 ;
     todos.splice(clickTodo, 1);
     this.setState({ todos });
-    this.setState({ deleteNum });
   }
 
   render() {
     let undoneNum = 0;
     let doneNum = 0;
-    let level = 0;
 
     this.state.todos.forEach((todo) => {
       if (todo.done === false) {
@@ -69,16 +72,11 @@ export default class App extends Component {
       }
     });
 
-    this.state.todos.forEach((todo) => {
-      if (todo.done === true) {
-        doneNum++;
-      }
-    });
-
     return (
       <div className="app">
         <h1>todoアプリを作ってみた</h1>
-        <h2>完了：{doneNum + this.state.deleteNum}　　残り：{undoneNum}</h2>
+        <h2>完了：{this.state.countDone}　　残り：{undoneNum}</h2>
+        <h3>Lv. {this.state.level}</h3>
         <Form onSubmit={this.handleSubmit.bind(this)} />
         <TodoList
           todos={this.state.todos}
