@@ -10,6 +10,7 @@ export default class App extends Component {
     super();
     this.state = {
       todos: [],
+      countTodo: 1,
       countDone: 0,
       level: 1,
       num: 1,
@@ -36,9 +37,11 @@ export default class App extends Component {
       title: title,
       desc: desc,
       done: false,
-      index: todos.length
+      countTodo: this.state.countTodo
     });
+    const countTodo = this.state.countTodo + 1 ;
     this.setState({ todos });
+    this.setState({countTodo})
 
     e.target.title.value = '';
     e.target.desc.value = '';
@@ -79,7 +82,7 @@ export default class App extends Component {
 
   deleteTodoState(clickTodo) {
     const todos = this.state.todos.slice();
-    todos.splice(clickTodo, 1);
+    todos.splice(clickTodo.index, 1);
     this.setState({ todos });
   }
 

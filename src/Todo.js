@@ -16,7 +16,7 @@ export default class from extends Component {
     const todoDelete = this.props.done? '削除' : '';
     return(
       <li className={className}>
-        <span>{this.props.index + 1}</span>
+        <span>{this.props.countTodo}</span>
         <span>：{this.props.title}　　</span>
         <a href="#" onClick={() => this.props.setTodoStatus(this.props)}>{link}</a>　　
         <a href="#" onClick={() => this.props.deleteTodoState(this.props)}>{todoDelete}</a><br/>
