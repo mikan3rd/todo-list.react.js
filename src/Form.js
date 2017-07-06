@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import './form.css';
 
 export default class Form extends Component {
+  // aaa = 'bbb';
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {text: ''};
+  // }
+
   render() {
     return (
       <div className="form">
@@ -14,3 +20,8 @@ export default class Form extends Component {
     );
   }
 }
+
+// <textarea onChange={e => this.setState({text: e.target.value})}>
+//   {this.state.text}
+// </textarea>
+// <span onClick={() => console.log(this.state.text)}>print!</span>

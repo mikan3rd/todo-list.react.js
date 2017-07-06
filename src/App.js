@@ -11,7 +11,6 @@ export default class App extends Component {
     this.state = {
       todos: []
     };
-
   }
 
   // handleSubmit = handleSubmit.bind(this);
@@ -44,8 +43,9 @@ export default class App extends Component {
 
   setTodoStatus(index) {
     // const todos = this.state.todos.slice();
-    // const todo = todos.
-    console.log("success!");
+    // const todo = todos.find(todo => todo.index == 0);
+    console.log("success", index);
+    // console.log(this.state);
   }
 
   render() {
@@ -53,7 +53,7 @@ export default class App extends Component {
       <div className="app">
         <h1>todoアプリを作ってみた</h1>
         <Form onSubmit={this.handleSubmit.bind(this)} />
-        <TodoList todos={this.state.todos} setTodoStatus= {() => this.setTodoStatus.bind(this)} />
+        <TodoList todos={this.state.todos} setTodoStatus={this.setTodoStatus.bind(this)} />
       </div>
     );
   }
