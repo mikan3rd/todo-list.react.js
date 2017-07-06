@@ -51,16 +51,16 @@ export default class App extends Component {
 
   render() {
     let undoneNum = 0;
-    this.state.todos.forEach(function(todo){
-      if (todo.done == false) {
+    this.state.todos.forEach((todo) => {
+      if (todo.done === false) {
         undoneNum++;
       }
     });
-    
+
     return (
       <div className="app">
         <h1>todoアプリを作ってみた</h1>
-        <h2>完了数：{undoneNum}</h2>
+        <h2>残り：{undoneNum}</h2>
         <Form onSubmit={this.handleSubmit.bind(this)} />
         <TodoList todos={this.state.todos} setTodoStatus={this.setTodoStatus.bind(this)} />
       </div>
