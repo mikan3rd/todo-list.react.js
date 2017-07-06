@@ -35,7 +35,8 @@ export default class App extends Component {
     todos.push({
       title: title,
       desc: desc,
-      done: false
+      done: false,
+      index: todos.length
     });
     this.setState({ todos });
 
@@ -60,7 +61,7 @@ export default class App extends Component {
 
    while (countDone >= num) {
       level++;
-      if (num == 0) {
+      if (num === 0) {
         num += 2;
       } else {
       num += num;

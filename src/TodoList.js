@@ -10,7 +10,7 @@ export default class TodoList extends Component {
       todos.push(
         <Todo
           key={i}
-          index={i}
+          index={this.props.todos[i].index}
           title={this.props.todos[i].title}
           desc={this.props.todos[i].desc}
           done={this.props.todos[i].done}
