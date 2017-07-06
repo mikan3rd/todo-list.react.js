@@ -11,7 +11,9 @@ export default class App extends Component {
     this.state = {
       todos: [],
       countDone: 0,
-      level: 1
+      level: 1,
+      num: 1,
+      nextLevel: 1
     };
   }
 
@@ -43,8 +45,8 @@ export default class App extends Component {
 
   setTodoStatus(clickTodo) {
     let countDone = this.state.countDone;
-    let level = 1;
-    let num = 1;
+    let level = this.state.level;
+    let num = this.state.num;
     const todos = this.state.todos.slice();
     const todo = todos[clickTodo.index];
     todo.done = !todo.done;
@@ -58,13 +60,20 @@ export default class App extends Component {
 
    while (countDone >= num) {
       level++;
-      num += level;
-      console.log(countDone, level, num);
+      if (num == 0) {
+        num += 2;
+      } else {
+      num += num;
+      }
+      console.log(countDone, num);
     }
+    const nextLevel = num - countDone;
 
     this.setState({ todos });
     this.setState({ countDone });
     this.setState({ level });
+    this.setState({ num });
+    this.setState({ nextLevel });
   }
 
   deleteTodoState(clickTodo) {
@@ -86,7 +95,7 @@ export default class App extends Component {
       <div className="app">
         <h1>todoアプリを作ってみた</h1>
         <h2>完了：{this.state.countDone}　　残り：{undoneNum}</h2>
-        <h3>Lv. {this.state.level}</h3>
+        <h3>Lv. {this.state.level}　(次のレベルまで{Math.round(this.state.nextLevel)})</h3>
         <Form onSubmit={this.handleSubmit.bind(this)} />
         <TodoList
           todos={this.state.todos}
