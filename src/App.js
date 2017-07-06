@@ -41,11 +41,12 @@ export default class App extends Component {
     e.target.desc.value = '';
   }
 
-  setTodoStatus(index) {
-    // const todos = this.state.todos.slice();
-    // const todo = todos.find(todo => todo.index == 0);
-    console.log("success", index);
-    // console.log(this.state);
+  setTodoStatus(clickTodo) {
+    const todos = this.state.todos.slice();
+    const todo = todos[clickTodo.index];
+    todo.done = !todo.done;
+    todos[clickTodo] = todo;
+    this.setState({ todos }); 
   }
 
   render() {
