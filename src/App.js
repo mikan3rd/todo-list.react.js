@@ -43,17 +43,28 @@ export default class App extends Component {
 
   setTodoStatus(clickTodo) {
     let countDone = this.state.countDone;
+    let level = 1;
+    let num = 1;
     const todos = this.state.todos.slice();
     const todo = todos[clickTodo.index];
     todo.done = !todo.done;
     todos[clickTodo] = todo;
+
     if (todo.done) {
       countDone++;
     } else {
       countDone--;
     }
+
+   while (countDone >= num) {
+      level++;
+      num += level;
+      console.log(countDone, level, num);
+    }
+
     this.setState({ todos });
     this.setState({ countDone });
+    this.setState({ level });
   }
 
   deleteTodoState(clickTodo) {
@@ -64,7 +75,6 @@ export default class App extends Component {
 
   render() {
     let undoneNum = 0;
-    let doneNum = 0;
 
     this.state.todos.forEach((todo) => {
       if (todo.done === false) {
