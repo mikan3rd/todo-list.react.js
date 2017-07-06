@@ -15,6 +15,7 @@ export default class TodoList extends Component {
           desc={this.props.todos[i].desc}
           done={this.props.todos[i].done}
           setTodoStatus={this.props.setTodoStatus}
+          deleteTodoState={this.props.deleteTodoState}
         />
       );
     }

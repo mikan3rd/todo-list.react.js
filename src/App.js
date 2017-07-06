@@ -49,6 +49,12 @@ export default class App extends Component {
     this.setState({ todos });
   }
 
+  deleteTodoState(clickTodo) {
+    const todos = this.state.todos.slice();
+    todos.splice(clickTodo, 1);
+    this.setState({ todos });
+  }
+
   render() {
     let undoneNum = 0;
     this.state.todos.forEach((todo) => {
@@ -62,7 +68,11 @@ export default class App extends Component {
         <h1>todoアプリを作ってみた</h1>
         <h2>残り：{undoneNum}</h2>
         <Form onSubmit={this.handleSubmit.bind(this)} />
-        <TodoList todos={this.state.todos} setTodoStatus={this.setTodoStatus.bind(this)} />
+        <TodoList
+          todos={this.state.todos}
+          setTodoStatus={this.setTodoStatus.bind(this)}
+          deleteTodoState={this.deleteTodoState.bind(this)}
+          />
       </div>
     );
   }
