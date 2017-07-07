@@ -1,0 +1,14 @@
+input, button {
+  margin: 5px;
+  font-size: 20px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  height: 30px;
+}
+
+textarea {
+  height: 80px;
+  width: 210px;
+  font-size: 16px;
+}
