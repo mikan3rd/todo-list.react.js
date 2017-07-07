@@ -3,31 +3,24 @@ import './todo.css';
 
 export default class from extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: props.title,
-      desc: props.desc,
-      done: props.done
-    };
-  }
-
-  handleClick(e) {
-    e.preventDefault();
-    this.setState({
-      done:!this.state.done
-    });
-  }
+  // handleClick(e) {
+  //   e.preventDefault();
+  //   this.setState({
+  //     done:!this.props.done
+  //   });
+  // }
 
   render() {
-    const link = this.state.done? '元に戻す' : '完了！';
-    const className = this.state.done? 'done' : 'undone';
+    const link = this.props.done? '元に戻す' : '完了！';
+    const className = this.props.done? 'done' : 'undone';
+    const todoDelete = this.props.done? '削除' : '';
     return(
       <li className={className}>
-        <span>1</span>
-        <span>：{this.state.title}　　</span>
-        <a href="#" onClick={this.handleClick.bind(this)}>{link}</a><br/>
-        <p>{this.state.desc}</p>
+        <span>{this.props.countTodo}</span>
+        <span>：{this.props.title}　　</span>
+        <a href="#" onClick={() => this.props.setTodoStatus(this.props)}>{link}</a>　　
+        <a href="#" onClick={() => this.props.deleteTodoState(this.props)}>{todoDelete}</a><br/>
+        <p>{this.props.desc}</p>
       </li>
     );
   }
