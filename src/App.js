@@ -67,7 +67,7 @@ export default class App extends Component {
       if (num === 0) {
         num += 2;
       } else {
-      num += num;
+      num += level;
       }
       console.log(countDone, num);
     }
