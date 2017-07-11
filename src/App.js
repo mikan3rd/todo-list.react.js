@@ -29,7 +29,10 @@ class App extends React.Component {
         return response;
       })
       .then((response) => response.json())
-      .then((todos) => this.setState({ todos }))
+      .then((todos) => {
+        this.setState({ todos })
+        this.setState({ countTodo: this.state.countTodo + this.state.todos.length})}
+      )
       .catch(() => this.setState({ hasErrored: true }));
   }
 
@@ -124,6 +127,8 @@ class App extends React.Component {
           todos={this.state.todos}
           setTodoStatus={this.setTodoStatus.bind(this)}
           deleteTodoState={this.deleteTodoState.bind(this)}
+          isLoading={this.state.isLoading}
+          hasError={this.state.hasError}
           />
       </div>
     );
