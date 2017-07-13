@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import './css/form.css';
 
 export default class Form extends Component {
-  // aaa = 'bbb';
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {text: ''};
-  // }
 
   render() {
     return (

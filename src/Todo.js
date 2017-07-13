@@ -3,13 +3,6 @@ import './css/todo.css';
 
 export default class from extends Component {
 
-  // handleClick(e) {
-  //   e.preventDefault();
-  //   this.setState({
-  //     done:!this.props.done
-  //   });
-  // }
-
   render() {
     const link = this.props.done? '元に戻す' : '完了！';
     const className = this.props.done? 'done' : 'undone';

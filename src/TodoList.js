@@ -5,7 +5,6 @@ import Todo from './Todo';
 export default class TodoList extends Component {
 
   render() {
-    console.log(this.props.isLoading)
     if (this.props.hasError) {
       return <h2>error</h2>;
     }
