@@ -5,6 +5,13 @@ import Todo from './Todo';
 export default class TodoList extends Component {
 
   render() {
+    console.log(this.props.isLoading)
+    if (this.props.hasError) {
+      return <h2>error</h2>;
+    }
+    if (this.props.isLoading) {
+      return <h2>loading . . . </h2>;
+    }
     const todos = [];
     for (var i = 0; i < this.props.todos.length; i++) {
       todos.push(

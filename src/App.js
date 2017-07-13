@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Form from './Form';
 import TodoList from './TodoList';
-import './App.css';
+import './css/App.css'
 
 
-export default class App extends Component {
+class App extends React.Component {
 
   constructor() {
     super();
@@ -15,7 +15,29 @@ export default class App extends Component {
       level: 1,
       num: 1,
       nextLevel: 1
-    };
+    }
+  }
+
+  fetchData(url) {
+    this.setState({ isLoading: true });
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        this.setState({ isLoading: false });
+        return response;
+      })
+      .then((response) => response.json())
+      .then((todos) => {
+        this.setState({ todos })
+        this.setState({ countTodo: this.state.countTodo + this.state.todos.length})}
+      )
+      .catch(() => this.setState({ hasErrored: true }));
+  }
+
+  componentDidMount() {
+    this.fetchData('data1.json');
   }
 
   handleSubmit(e) {
@@ -105,8 +127,12 @@ export default class App extends Component {
           todos={this.state.todos}
           setTodoStatus={this.setTodoStatus.bind(this)}
           deleteTodoState={this.deleteTodoState.bind(this)}
+          isLoading={this.state.isLoading}
+          hasError={this.state.hasError}
           />
       </div>
     );
   }
 }
+
+export default App
