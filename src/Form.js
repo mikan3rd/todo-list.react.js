@@ -15,8 +15,3 @@ export default class Form extends Component {
     );
   }
 }
-
-// <textarea onChange={e => this.setState({text: e.target.value})}>
-//   {this.state.text}
-// </textarea>
-// <span onClick={() => console.log(this.state.text)}>print!</span>
